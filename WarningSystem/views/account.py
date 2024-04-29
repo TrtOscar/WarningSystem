@@ -86,7 +86,7 @@ def login(request):
 
         # 用户名和密码正确
         # 网站生成随机字符串，写到用户浏览器的cookie中，再写入到session中
-        request.session['info'] = {'id': user.id, 'name': user.name}
+        request.session['info'] = {'id': user.id, 'name': user.name, 'role': user.role}
         # 根据用户角色跳转到不同的页面
         if user.role == 2:
             return redirect("/admin/list/")
@@ -95,3 +95,9 @@ def login(request):
         return redirect("/student/homepage/")
 
     return render(request, 'login.html', {"form": form})
+
+
+def logout(request):
+    """注销"""
+    request.session.clear()
+    return redirect("/login/")

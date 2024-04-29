@@ -41,8 +41,9 @@ urlpatterns = [
     path('admin/<int:nid>/edit/', admin.admin_edit),  # 管理员编辑
     path('admin/<int:nid>/reset', admin.admin_reset),  # 管理员重置密码
 
-    # 登录相关
+    # 登录以及注销相关
     path('login/', account.login),  # 登录
+    path('logout/', account.logout),  # 注销
 
     # 主页相关
     path('student/homepage/', student.student_homepage),  # 学生主页
