@@ -44,6 +44,7 @@ urlpatterns = [
     # 登录以及注销相关
     path('login/', account.login),  # 登录
     path('logout/', account.logout),  # 注销
+    path('image/code/', account.image_code),  # 验证码
 
     # 主页相关
     path('student/homepage/', student.student_homepage),  # 学生主页

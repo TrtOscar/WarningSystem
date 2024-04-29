@@ -5,7 +5,7 @@ from django.shortcuts import redirect, HttpResponse
 class AuthMiddleware(MiddlewareMixin):
     def process_request(self, request):
         # 0.排除不需要登录就能访问的url
-        if request.path_info in ["/login/", "/register/"]:
+        if request.path_info in ["/login/", "/image/code/"]:
             return None
         # 1. 读取当前用户的session信息，若能读取到，说明已经登录过，可以继续访问
         info_dict = request.session.get("info")
